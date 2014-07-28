@@ -1,0 +1,12 @@
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\bin\Debug\TestBerry.exe.config
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\bin\Debug\TestBerry.exe
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\bin\Debug\TestBerry.pdb
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\obj\Debug\MainWindow.baml
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\obj\Debug\MainWindow.g.cs
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\obj\Debug\App.g.cs
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\obj\Debug\TestBerry_MarkupCompile.cache
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\obj\Debug\TestBerry.g.resources
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\obj\Debug\TestBerry.Properties.Resources.resources
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\obj\Debug\TestBerry.csproj.GenerateResource.Cache
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\obj\Debug\TestBerry.exe
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\obj\Debug\TestBerry.pdb

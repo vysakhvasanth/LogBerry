@@ -1,0 +1,95 @@
+@@ PScli_host = 10.97.144.90
+@@ PScli_port = 2810
+@@ Mail list = "vv05@csr.com,"
+@@ ROM file Prefix = "NA"
+@@ PScli_host = 10.97.144.90
+@@ PScli_port = 2810
+@@ Mail list = "vv05@csr.com,"
+@@ WARNING no ROM file prefix -- assign "fruitbat" by default
+@@ PScli_host = 10.97.144.90
+@@ PScli_port = 2810
+@@ Mail list = "vv05@csr.com,"
+@@ WARNING no ROM file prefix -- assign "fruitbat" by default
+@@ Start monitoring soed on 10.97.144.90 2800
+@@INFO Reading pskeys of BC7-GDN:BCSP:10.97.144.90:2821:FAST:BSPI_01:NOCOMBINER%%MST:exp9:0x00025b00c512:4.1:0x7:MST
+@@INFO Reading memory type of BC7-GDN:BCSP:10.97.144.90:2821:FAST:BSPI_01:NOCOMBINER%%MST:exp9:0x00025b00c512:4.1:0x7:MST
+@@ Get panic fault args using bccmd
+@@ Clear panic arg
+@@ Clear fault arg
+@@INFO Reading pskeys of BC7-GDN:BCSP:10.97.144.90:2820:FAST:BSPI_00:NOCOMBINER%%SLV:exp11:0x00025b00c511:4.1:0x7:SLV
+@@INFO Reading memory type of BC7-GDN:BCSP:10.97.144.90:2820:FAST:BSPI_00:NOCOMBINER%%SLV:exp11:0x00025b00c511:4.1:0x7:SLV
+@@ Get panic fault args using bccmd
+@@ Clear panic arg
+@@ Clear fault arg
+@@INFO test_case_setup not provided for execution before each test.
+@@INFO test_case_shutdown not provided for execution after each test.
+@@ Iteration 1 of 1
+@@=======================================================================
+@@ tc8: Link Supervision Timeout TC4,5 LSVT=0x0 0x80 0x190 0x7d00 0xFFFF 
+@@=======================================================================
+@@INFO BDADDR MST = 0x00025b00c512
+@@INFO BDADDR SLV = 0x00025b00c511
+@@INFO page scans are enabled on the SLAVE
+@@BT_CONNECTION_ATTEMPT
+@@INFO CONNECTION HANDLE for link MST - SLV is acl0
+@@INFO CONNECTION HANDLE for link SLV - MST is acl0
+@@INFO @ Time0: 36190414
+@@INFO @ waiting for link timeout on master and slave
+@@INFO @ No Link timeout: 0x0 after 50 seconds
+@@INFO BDADDR MST = 0x00025b00c512
+@@INFO BDADDR SLV = 0x00025b00c511
+@@INFO page scans are enabled on the SLAVE
+@@BT_CONNECTION_ATTEMPT
+@@INFO CONNECTION HANDLE for link MST - SLV is acl0
+@@INFO CONNECTION HANDLE for link SLV - MST is acl0
+@@INFO @ Time0: 36242859
+@@INFO @ waiting for link timeout on master and slave
+@@INFO @ Time1_(MST): 71 ms max:140.0 ms min:20.0 ms
+@@INFO @ Disconnected with a Tsup_(MST) of 0x80, It took 71 mS
+@@INFO @ Time1_(SLV): 153 ms max:280.0 ms min:40.0 ms
+@@INFO @ Disconnected with a Tsup_(SLV) of 0x80, It took 153 mS
+@@INFO BDADDR MST = 0x00025b00c512
+@@INFO BDADDR SLV = 0x00025b00c511
+@@INFO page scans are enabled on the SLAVE
+@@BT_CONNECTION_ATTEMPT
+@@INFO CONNECTION HANDLE for link MST - SLV is acl0
+@@INFO CONNECTION HANDLE for link SLV - MST is acl0
+@@INFO @ Time0: 36245422
+@@INFO @ waiting for link timeout on master and slave
+@@INFO @ Time1_(MST): 214 ms max:331.25 ms min:168.75 ms
+@@INFO @ Disconnected with a Tsup_(MST) of 0x190, It took 214 mS
+@@INFO @ Time1_(SLV): 446 ms max:662.5 ms min:337.5 ms
+@@INFO @ Disconnected with a Tsup_(SLV) of 0x190, It took 446 mS
+@@INFO BDADDR MST = 0x00025b00c512
+@@INFO BDADDR SLV = 0x00025b00c511
+@@INFO page scans are enabled on the SLAVE
+@@BT_CONNECTION_ATTEMPT
+@@INFO CONNECTION HANDLE for link MST - SLV is acl0
+@@INFO CONNECTION HANDLE for link SLV - MST is acl0
+@@INFO @ Time0: 36247971
+@@INFO @ waiting for link timeout on master and slave
+@@INFO @ Time1_(MST): 19802 ms max:20550.0 ms min:19450.0 ms
+@@INFO @ Disconnected with a Tsup_(MST) of 0x7d00, It took 19802 mS
+@@INFO @ Time1_(SLV): 39825 ms max:41100.0 ms min:38900.0 ms
+@@INFO @ Disconnected with a Tsup_(SLV) of 0x7d00, It took 39825 mS
+@@INFO BDADDR MST = 0x00025b00c512
+@@INFO BDADDR SLV = 0x00025b00c511
+@@INFO page scans are enabled on the SLAVE
+@@BT_CONNECTION_ATTEMPT
+@@INFO CONNECTION HANDLE for link MST - SLV is acl0
+@@INFO CONNECTION HANDLE for link SLV - MST is acl0
+@@INFO @ Time0: 36290211
+@@INFO @ waiting for link timeout on master and slave
+@@INFO @ Time1_(MST): 40797 ms max:41509.375 ms min:40409.375 ms
+@@INFO @ Disconnected with a Tsup_(MST) of 0xffff, It took 40797 mS
+@@INFO @ Time1_(SLV): 81812 ms max:83018.75 ms min:80818.75 ms
+@@INFO @ Disconnected with a Tsup_(SLV) of 0xffff, It took 81812 mS
+@@PASS Testcase 8: 
+@@ Get panic fault args using bccmd
+@@ Clear panic arg
+@@ Clear fault arg
+@@ buffer cleared
+@@ Get panic fault args using bccmd
+@@ Clear panic arg
+@@ Clear fault arg
+@@RESULTS_TEST_LSV_8_1_0

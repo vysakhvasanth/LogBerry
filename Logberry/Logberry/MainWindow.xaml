@@ -1,0 +1,54 @@
+﻿<Window x:Name="LogBerryWindow" x:Class="Logberry.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:avalonDock="http://avalondock.codeplex.com"
+        Title="Logberry" Height="434" Width="684" SizeChanged="LogBerryWindow_SizeChanged" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu AllowDrop="True" Background="#FF4D4B4B" Foreground="White">
+            <MenuItem Header="File">
+
+                <MenuItem Header="New" Command="{Binding NewCommand}" Foreground="Black"/>
+                <MenuItem Header="Open" Command="{Binding OpenCommand}" Foreground="Black"/>
+                <Separator/>
+                <MenuItem Header="Save" Command="{Binding ActiveDocument.SaveCommand}" Foreground="Black"/>
+                <MenuItem Header="Save As..." Command="{Binding ActiveDocument.SaveAsCommand}" Foreground="Black"/>
+                <Separator/>
+                <MenuItem Header="Close" Command="{Binding ActiveDocument.CloseCommand}" Foreground="Black"/>
+
+            </MenuItem>
+        </Menu>
+        <avalonDock:DockingManager x:Name="dockingManager" Grid.Row="1" Background="#FFDAD9D9" Foreground="Black">
+            <avalonDock:LayoutRoot>
+                <avalonDock:LayoutPanel Orientation="Horizontal">
+                    <avalonDock:LayoutDocumentPane>
+                        <avalonDock:LayoutDocument Title="Log File" x:Name="dockDataGrid">
+                            <DataGrid x:Name="LogView" IsReadOnly="True" IsTextSearchCaseSensitive="True" Margin="0,26,0,0" ColumnWidth="*" Drop="LogView_Drop" AllowDrop="True"/>
+                        </avalonDock:LayoutDocument>
+                    </avalonDock:LayoutDocumentPane>
+                    <avalonDock:LayoutAnchorablePane DockWidth="250">
+                        <avalonDock:LayoutAnchorable Title="Regex Bench">
+                            <TextBox Height="31" VerticalAlignment="Top"/>
+                            
+                        </avalonDock:LayoutAnchorable>
+                    </avalonDock:LayoutAnchorablePane>
+                </avalonDock:LayoutPanel>
+                <!--<avalonDock:LayoutRoot.LeftSide>
+                    <avalonDock:LayoutAnchorSide>
+                        <avalonDock:LayoutAnchorGroup>
+                            <avalonDock:LayoutAnchorable Title="Autohidden Content">
+                            </avalonDock:LayoutAnchorable>
+                        </avalonDock:LayoutAnchorGroup>
+                    </avalonDock:LayoutAnchorSide>
+                </avalonDock:LayoutRoot.LeftSide>-->
+            </avalonDock:LayoutRoot>
+        </avalonDock:DockingManager>
+        
+
+    </Grid>
+
+</Window>
+
