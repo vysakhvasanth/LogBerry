@@ -31,8 +31,10 @@
                     </avalonDock:LayoutDocumentPane>
                     <avalonDock:LayoutAnchorablePane DockWidth="250">
                         <avalonDock:LayoutAnchorable Title="Regex Bench">
-                            <TextBox Height="31" VerticalAlignment="Top"/>
-                            
+                            <ToolBarPanel>
+                                <TextBox x:Name="regex_Txt" Height="31"  HorizontalAlignment="Stretch" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                                <Button x:Name="btn_rgx_filter" Content="Filter"  Margin="0,7,0,282" HorizontalAlignment="Right" Width="67" Height="25" Click="btn_rgx_filter_Click"/>
+                            </ToolBarPanel>
                         </avalonDock:LayoutAnchorable>
                     </avalonDock:LayoutAnchorablePane>
                 </avalonDock:LayoutPanel>
@@ -46,7 +48,7 @@
                 </avalonDock:LayoutRoot.LeftSide>-->
             </avalonDock:LayoutRoot>
         </avalonDock:DockingManager>
-        
+
 
     </Grid>
 

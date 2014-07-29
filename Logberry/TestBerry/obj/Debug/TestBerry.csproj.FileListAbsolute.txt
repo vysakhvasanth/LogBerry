@@ -10,3 +10,16 @@ C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\obj\Debug
 C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\obj\Debug\TestBerry.csproj.GenerateResource.Cache
 C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\obj\Debug\TestBerry.exe
 C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\obj\Debug\TestBerry.pdb
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\bin\Debug\AvalonDock.dll
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\bin\Debug\AvalonDock.pdb
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\bin\Debug\de\AvalonDock.resources.dll
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\bin\Debug\es\AvalonDock.resources.dll
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\bin\Debug\fr\AvalonDock.resources.dll
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\bin\Debug\hu\AvalonDock.resources.dll
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\bin\Debug\it\AvalonDock.resources.dll
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\bin\Debug\pt-BR\AvalonDock.resources.dll
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\bin\Debug\ro\AvalonDock.resources.dll
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\bin\Debug\ru\AvalonDock.resources.dll
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\bin\Debug\sv\AvalonDock.resources.dll
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\bin\Debug\zh-Hans\AvalonDock.resources.dll
+C:\Users\vv05\documents\visual studio 2012\Projects\Logberry\TestBerry\obj\Debug\TestBerry.csprojResolveAssemblyReference.cache

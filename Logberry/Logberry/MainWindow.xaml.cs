@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -47,6 +48,19 @@ namespace Logberry
                 logViewUpadter.LoadFile();
 
             }
+        }
+
+        private void btn_rgx_filter_Click(object sender, RoutedEventArgs e)
+        {
+            string rgx = regex_Txt.Text;
+            List<LogData> _filtered = new List<LogData>();
+            foreach (LogData item in logViewUpadter.logData)
+            {
+                Match mth = Regex.Match(item.Log_Data, rgx, RegexOptions.IgnoreCase);
+                if (mth.Success) _filtered.Add(item);
+            }
+
+            logViewUpadter.UpdateView(_filtered);
         }
 
     }
