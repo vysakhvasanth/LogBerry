@@ -56,12 +56,16 @@ namespace Logberry
             List<LogData> _filtered = new List<LogData>();
             foreach (LogData item in logViewUpadter.logData)
             {
-                Match mth = Regex.Match(item.Log_Data, rgx, RegexOptions.IgnoreCase);
+                Match mth = Regex.Match(item.INFO, rgx, RegexOptions.IgnoreCase);
                 if (mth.Success) _filtered.Add(item);
             }
 
             logViewUpadter.UpdateView(_filtered);
         }
 
+        private void LogView_Loaded(object sender, RoutedEventArgs e)
+        {
+           
+        }
     }
 }

@@ -4,33 +4,30 @@
         xmlns:avalonDock="http://avalondock.codeplex.com"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
-        <avalonDock:DockingManager x:Name="dockingManager">
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <avalonDock:DockingManager x:Name="dockingManager" Grid.Row="1">
+
             <avalonDock:LayoutRoot>
-                
+
                 <avalonDock:LayoutPanel Orientation="Horizontal">
-                    
+
                     <avalonDock:LayoutDocumentPaneGroup>
-                        <avalonDock:LayoutDocumentPane>
-                            <avalonDock:LayoutDocument Title="Doc1">
-                                <TextBox/>
-                            </avalonDock:LayoutDocument>
-                            <avalonDock:LayoutDocument Title="Doc2">
-                                <TextBox/>
-                            </avalonDock:LayoutDocument>
-                        </avalonDock:LayoutDocumentPane>
+
                         <avalonDock:LayoutDocumentPane>
                             <avalonDock:LayoutDocument Title="Doc3">
-                                <WrapPanel>
-                                    <Button Content="Button" Width="75"/>
-                                </WrapPanel>
+                               
+                                
+                                    <DataGrid x:Name="LogView" IsReadOnly="True" IsTextSearchCaseSensitive="True" ColumnWidth="*" Height="265" Width="354" />
+                                
 
                             </avalonDock:LayoutDocument>
                         </avalonDock:LayoutDocumentPane>
                     </avalonDock:LayoutDocumentPaneGroup>
                     <avalonDock:LayoutAnchorablePaneGroup DockWidth="150" Orientation="Vertical">
-                            <avalonDock:LayoutAnchorablePane>
+                        <avalonDock:LayoutAnchorablePane>
                             <avalonDock:LayoutAnchorable Title="Tool 1">
                                 <TextBox/>
                             </avalonDock:LayoutAnchorable>
@@ -59,7 +56,5 @@
                 </avalonDock:LayoutRoot.LeftSide>
             </avalonDock:LayoutRoot>
         </avalonDock:DockingManager>
-
-
     </Grid>
 </Window>

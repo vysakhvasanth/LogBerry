@@ -49,7 +49,7 @@ namespace Logberry
             {
                 LogData dat = new LogData();
                 dat.ID = _id++;
-                dat.Log_Data = item;
+                dat.INFO = item;
                 logData.Add(dat);
             }
             return logData;
