@@ -27,7 +27,7 @@ namespace Logberry
         public MainWindow()
         {
             InitializeComponent();
-            logViewUpadter = new LogViewUpadater(LogView);
+            logViewUpadter = new LogViewUpadater(LogView, this);
         }
 
         private void LogBerryWindow_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -61,11 +61,15 @@ namespace Logberry
             }
 
             logViewUpadter.UpdateView(_filtered);
+            if(regex_Txt.Text!=" " &&  regex_Txt.Text!="")
+                InfoBar.Text = "Filter: " + regex_Txt.Text;
         }
 
-        private void LogView_Loaded(object sender, RoutedEventArgs e)
+        private void btn_reset_Click(object sender, RoutedEventArgs e)
         {
-           
+            regex_Txt.Clear();
+            if (btn_rgx_filter != null) btn_rgx_filter.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            InfoBar.Text = "<none>";
         }
     }
 }

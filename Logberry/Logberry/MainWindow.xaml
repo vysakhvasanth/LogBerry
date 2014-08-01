@@ -7,6 +7,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="24"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="28"/>
         </Grid.RowDefinitions>
         <Menu AllowDrop="True" Background="#FF4D4B4B" Foreground="White">
             <MenuItem Header="File">
@@ -36,10 +37,21 @@
                     </avalonDock:LayoutDocumentPane>
                     <avalonDock:LayoutAnchorablePane DockWidth="250">
                         <avalonDock:LayoutAnchorable Title="Regex Bench">
-                            <ToolBarPanel>
-                                <TextBox x:Name="regex_Txt" Height="31"  HorizontalAlignment="Stretch" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
-                                <Button x:Name="btn_rgx_filter" Content="Filter"  Margin="0,7,0,282" HorizontalAlignment="Right" Width="67" Height="25" Click="btn_rgx_filter_Click"/>
-                            </ToolBarPanel>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="28"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <TextBox x:Name="regex_Txt" Height="26"  HorizontalAlignment="Stretch" VerticalAlignment="Center" VerticalContentAlignment="Center"  Grid.Row="0"/>
+                                <Button x:Name="btn_rgx_filter" Content="Filter" HorizontalAlignment="Right" Width="68" Height="25" Click="btn_rgx_filter_Click" VerticalAlignment="Top" Grid.Row="1" Margin="0,2,0,0"/>
+                                <Button x:Name="btn_reset" Content="Reset" HorizontalAlignment="Right"  Grid.Row="1" VerticalAlignment="Top" Width="68" Height="25" Click="btn_reset_Click" Margin="0,2,71,0" />
+                                <StatusBar HorizontalAlignment="Stretch" Height="28"  Grid.Row="2" VerticalAlignment="Bottom"  Margin="-4,0,-3,-4">
+                                    <StatusBarItem>
+                                        <TextBlock x:Name="InfoBar" Text="&lt;none&gt;" />
+                                    </StatusBarItem>
+                                </StatusBar>
+                            </Grid>
                         </avalonDock:LayoutAnchorable>
                     </avalonDock:LayoutAnchorablePane>
                 </avalonDock:LayoutPanel>
@@ -53,6 +65,12 @@
                 </avalonDock:LayoutRoot.LeftSide>-->
             </avalonDock:LayoutRoot>
         </avalonDock:DockingManager>
+        <StatusBar HorizontalAlignment="Stretch" Height="28" Grid.Row="2" VerticalAlignment="Top">
+            <StatusBarItem>
+                <TextBox x:Name="MainInfoBar" Text="&lt;none&gt;" Background="#FFF1EDED" IsReadOnly="True" HorizontalAlignment="Left"/>
+            </StatusBarItem>
+            <StatusBarItem>
+            </StatusBarItem>
+        </StatusBar>
     </Grid>
 </Window>
-

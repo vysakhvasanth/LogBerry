@@ -13,13 +13,15 @@ namespace Logberry
     public class LogViewUpadater
     {
         private DataGrid LogView;
+        private MainWindow mainWindow;
         private List<String> LogItems = new List<string>();
         public List<LogData> logData = new List<LogData>();
         public string FILENAME = @"46_simplex_elv_bcsp.out";
 
-        public LogViewUpadater(DataGrid LogView)
+        public LogViewUpadater(DataGrid LogView, MainWindow mainWindow)
         {
             this.LogView = LogView;
+            this.mainWindow = mainWindow;
             LoadFile();
         }
 
@@ -36,6 +38,9 @@ namespace Logberry
             {
                 UpdateView(GetItemInfo());
             }
+            //TODO: Show loaded file path
+            mainWindow.MainInfoBar.Text = "Log loaded from "+new FileInfo(FILENAME).FullName;
+
         }
 
         /*
@@ -80,6 +85,7 @@ namespace Logberry
             {
                using (StreamReader reader = new StreamReader(FILE))
                {
+                   
                   while(!reader.EndOfStream) 
                   LogItems.Add(reader.ReadLine());
                }
