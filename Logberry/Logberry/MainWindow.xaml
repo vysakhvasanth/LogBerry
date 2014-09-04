@@ -70,8 +70,6 @@
             <StatusBarItem>
                 <TextBox x:Name="MainInfoBar" Text="&lt;none&gt;" Background="#FFF1EDED" IsReadOnly="True" HorizontalAlignment="Left"/>
             </StatusBarItem>
-            <StatusBarItem>
-            </StatusBarItem>
         </StatusBar>
     </Grid>
 </Window>

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace Logberry
 {
@@ -63,11 +64,13 @@ namespace Logberry
 
                 while (true)
                 {
+                    mainWindow.MainInfoBar.Text = "Loading log...";
                     string line = await sr.ReadLineAsync();
                     if (line == null) break;
 
                     LogData vt = new LogData() { ID = count++, INFO = line };
-                    readLines.Add(vt);
+                    if(line!="")
+                        readLines.Add(vt);
                 }
             }
 
