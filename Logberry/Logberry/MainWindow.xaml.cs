@@ -28,15 +28,9 @@ namespace Logberry
         {
             InitializeComponent();
             logViewUpadter = new LogViewUpadater(LogView, this);
+            logViewUpadter.asyncLoad();
         }
 
-        private void LogBerryWindow_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            //resize the layoutpanels to ratio
-            dockDataGrid.FloatingWidth = e.NewSize.Width/4;
-            dockDataGrid.Title = Path.GetFileName(logViewUpadter.FILENAME);
-            
-        }
 
         private void LogView_Drop(object sender, DragEventArgs e)
         {
@@ -44,8 +38,8 @@ namespace Logberry
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
                 files = (string[]) e.Data.GetData(DataFormats.FileDrop);
-                logViewUpadter.FILENAME = files[0];
-                logViewUpadter.LoadFile();
+                logViewUpadter._file = files[0];
+                logViewUpadter.asyncLoad();
 
             }
         }
@@ -54,7 +48,7 @@ namespace Logberry
         {
             string rgx = regex_Txt.Text;
             List<LogData> _filtered = new List<LogData>();
-            foreach (LogData item in logViewUpadter.logData)
+            foreach (LogData item in logViewUpadter._logData)
             {
                 Match mth = Regex.Match(item.INFO, rgx, RegexOptions.IgnoreCase);
                 if (mth.Success) _filtered.Add(item);

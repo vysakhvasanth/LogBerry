@@ -12,59 +12,25 @@ namespace Logberry
 {
     public class LogViewUpadater
     {
-        private DataGrid LogView;
+        private DataGrid _LogView;
         private MainWindow mainWindow;
         private List<String> LogItems = new List<string>();
-        public List<LogData> logData = new List<LogData>();
-        public string FILENAME = @"46_simplex_elv_bcsp.out";
+        public List<LogData> _logData = new List<LogData>();
+        public string _file = "46_simplex_elv_bcsp.out";
+        public bool isLogLoaded = false;
 
-        public LogViewUpadater(DataGrid LogView, MainWindow mainWindow)
+        public LogViewUpadater(DataGrid _LogView, MainWindow mainWindow)
         {
-            this.LogView = LogView;
+            this._LogView = _LogView;
             this.mainWindow = mainWindow;
-            LoadFile();
-        }
-
-
-        /*
-         * Loads the log file
-         */
-        public void LoadFile()
-        {
-            //remove previous entries
-            LogItems.Clear();
-            logData.Clear();
-            if (ReadFromFile(FILENAME))
-            {
-                UpdateView(GetItemInfo());
-            }
-            //TODO: Show loaded file path
-            mainWindow.MainInfoBar.Text = "Log loaded from "+new FileInfo(FILENAME).FullName;
-
-        }
-
-        /*
-         * Simply populate the datagrid view with
-         * the entire contents of the list
-         */
-        public List<LogData> GetItemInfo()
-        {
-            int _id = 0;
-            foreach (String item in LogItems)
-            {
-                LogData dat = new LogData();
-                dat.ID = _id++;
-                dat.INFO = item;
-                logData.Add(dat);
-            }
-            return logData;
         }
 
         public bool UpdateView(Object data)
         {
             try
             {
-                LogView.ItemsSource = (IEnumerable)data;
+               if(isLogLoaded&&data!=null) 
+                   _LogView.ItemsSource = (IEnumerable)data;
 
             }
             catch (Exception)
@@ -75,30 +41,37 @@ namespace Logberry
             return true;
         }
 
-        /*
-         * Read everything from the file and dump it into
-         * a list
-         */
-        private bool ReadFromFile(string FILE)
+        public async void asyncLoad()
         {
-            try
+            _logData = await asyncReadFile();
+            if (_logData != null)
             {
-               using (StreamReader reader = new StreamReader(FILE))
-               {
-                   
-                  while(!reader.EndOfStream) 
-                  LogItems.Add(reader.ReadLine());
-               }
-                
-            }
-            catch (Exception ex)
-            {
-                InformerPrompt info = new InformerPrompt("FileError",ex.Message);
-                return false;
+                _LogView.ItemsSource = _logData;
+                isLogLoaded = true;
             }
 
+            mainWindow.MainInfoBar.Text = "Log loaded from " + new FileInfo(_file).FullName;
+        }
 
-            return true;
+        public async Task<List<LogData>> asyncReadFile()
+        {
+            List<LogData> readLines = new List<LogData>();
+            int count = 0;
+
+            using (StreamReader sr = new StreamReader(_file))
+            {
+
+                while (true)
+                {
+                    string line = await sr.ReadLineAsync();
+                    if (line == null) break;
+
+                    LogData vt = new LogData() { ID = count++, INFO = line };
+                    readLines.Add(vt);
+                }
+            }
+
+            return readLines;
         }
     }
 }
