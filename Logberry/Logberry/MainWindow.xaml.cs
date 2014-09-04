@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using Path = System.IO.Path;
 
 namespace Logberry
@@ -28,7 +29,23 @@ namespace Logberry
         {
             InitializeComponent();
             logViewUpadter = new LogViewUpadater(LogView, this);
+            
+            displayMemoryUsage();
+
             logViewUpadter.asyncLoad();
+        }
+
+        private void displayMemoryUsage()
+        {
+            DispatcherTimer dp = new DispatcherTimer();
+            dp.Interval = new TimeSpan(0,0,1);
+            dp.Tick += dp_Tick;
+            dp.Start();
+        }
+
+        void dp_Tick(object sender, EventArgs e)
+        {
+            InfoBar.Text = string.Format("Total Memory Usage: {0:0.00} MB", GC.GetTotalMemory(true) / 1024.0 / 1024.0);
         }
 
 
@@ -55,8 +72,6 @@ namespace Logberry
             }
 
             logViewUpadter.UpdateView(_filtered);
-            if(regex_Txt.Text!=" " &&  regex_Txt.Text!="")
-                InfoBar.Text = "Filter: " + regex_Txt.Text;
         }
 
         private void btn_reset_Click(object sender, RoutedEventArgs e)
