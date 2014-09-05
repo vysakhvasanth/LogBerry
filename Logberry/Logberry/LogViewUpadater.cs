@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -15,10 +16,13 @@ namespace Logberry
     {
         private DataGrid _LogView;
         private MainWindow mainWindow;
-        private List<String> LogItems = new List<string>();
         public List<LogData> _logData = new List<LogData>();
         public string _file = "46_simplex_elv_bcsp.out";
         public bool isLogLoaded = false;
+        public static string FILENAME = "";
+        private NotifyMessage notifyMessage;
+        public  bool isLoading;
+
 
         public LogViewUpadater(DataGrid _LogView, MainWindow mainWindow)
         {
@@ -52,6 +56,8 @@ namespace Logberry
             }
 
             mainWindow.MainInfoBar.Text = "Log loaded from " + new FileInfo(_file).FullName;
+            FILENAME=mainWindow.dockDataGrid.Title = new FileInfo(_file).Name;
+            isLoading = false;
         }
 
         public async Task<List<LogData>> asyncReadFile()
@@ -65,6 +71,8 @@ namespace Logberry
                 while (true)
                 {
                     mainWindow.MainInfoBar.Text = "Loading log...";
+                    mainWindow.dockDataGrid.Title = "Loading...";
+                    isLoading = true;
                     string line = await sr.ReadLineAsync();
                     if (line == null) break;
 
@@ -76,5 +84,45 @@ namespace Logberry
 
             return readLines;
         }
+
+        public async void doFilter(string regex)
+        {
+            List<LogData> data = await asyncFilter(regex);
+            UpdateView(data);
+            mainWindow.LogBerryWindow.Title = FILENAME;
+           
+            if (notifyMessage.IsActive)
+            {
+                notifyMessage.Close();
+                notifyMessage = null;
+            }
+        }
+
+
+        //TODO: Implement a callback function to cancel loader form
+        public async Task<List<LogData>> asyncFilter(string regex)
+        {
+            List<LogData> _filtered = new List<LogData>();
+            string rgx = regex;
+            mainWindow.LogBerryWindow.Title = "Loading...";
+            Task t = Task.Run( () =>  {
+                                 foreach (LogData item in _logData)
+                                 {
+                                     Match mth = Regex.Match(item.INFO, rgx, RegexOptions.IgnoreCase);
+                                     if (mth.Success)
+                                         _filtered.Add(item);
+                                 }
+            });
+            
+            if (notifyMessage==null)
+            {
+                notifyMessage = new NotifyMessage("Loading", "Running regex...");
+                notifyMessage.Show();
+            }
+            await t;
+            return _filtered;
+            
+        }
+
     }
 }

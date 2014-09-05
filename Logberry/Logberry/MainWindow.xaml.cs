@@ -24,18 +24,20 @@ namespace Logberry
     /// </summary>
     public partial class MainWindow : Window
     {
-        private LogViewUpadater logViewUpadter;
+        private LogViewUpadater logViewUpdater;
+
         public MainWindow()
         {
             InitializeComponent();
-            logViewUpadter = new LogViewUpadater(LogView, this);
-            
-            displayMemoryUsage();
+            _displayMemoryUsage();
+            logViewUpdater = new LogViewUpadater(LogView, this);
+            logViewUpdater.asyncLoad();
 
-            logViewUpadter.asyncLoad();
+            //set Icon
+            this.Icon = new BitmapImage(new Uri("logberry.ico",UriKind.Relative));
         }
 
-        private void displayMemoryUsage()
+        private void _displayMemoryUsage()
         {
             DispatcherTimer dp = new DispatcherTimer();
             dp.Interval = new TimeSpan(0,0,1);
@@ -51,34 +53,31 @@ namespace Logberry
 
         private void LogView_Drop(object sender, DragEventArgs e)
         {
+            
+            if (logViewUpdater.isLoading)
+                return;
+           
+
             string[] files;
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
+                
                 files = (string[]) e.Data.GetData(DataFormats.FileDrop);
-                logViewUpadter._file = files[0];
-                logViewUpadter.asyncLoad();
-
+                logViewUpdater._file = files[0];
+                logViewUpdater.asyncLoad();
             }
         }
 
         private void btn_rgx_filter_Click(object sender, RoutedEventArgs e)
         {
-            string rgx = regex_Txt.Text;
-            List<LogData> _filtered = new List<LogData>();
-            foreach (LogData item in logViewUpadter._logData)
-            {
-                Match mth = Regex.Match(item.INFO, rgx, RegexOptions.IgnoreCase);
-                if (mth.Success) _filtered.Add(item);
-            }
-
-            logViewUpadter.UpdateView(_filtered);
+           logViewUpdater.doFilter(regex_Txt.Text);
         }
-
+        
         private void btn_reset_Click(object sender, RoutedEventArgs e)
         {
             regex_Txt.Clear();
-            if (btn_rgx_filter != null) btn_rgx_filter.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-            InfoBar.Text = "<none>";
+            if (btn_rgx_filter != null) 
+                btn_rgx_filter.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         }
     }
 }

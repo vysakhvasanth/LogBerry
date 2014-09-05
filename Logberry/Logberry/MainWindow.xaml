@@ -27,7 +27,7 @@
             <avalonDock:LayoutRoot>
                 <avalonDock:LayoutPanel Orientation="Horizontal">
                     <avalonDock:LayoutDocumentPane>
-                        <avalonDock:LayoutDocument Title="Log File" x:Name="dockDataGrid">
+                        <avalonDock:LayoutDocument x:Name="dockDataGrid">
                             <DataGrid x:Name="LogView" IsReadOnly="True" IsTextSearchCaseSensitive="True" Margin="0,26,0,0" ColumnWidth="*" Drop="LogView_Drop" AllowDrop="True" VerticalScrollBarVisibility="Visible" AutoGenerateColumns="False" RowHeaderWidth="10" ColumnHeaderHeight="10" HorizontalScrollBarVisibility="Visible">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Binding="{Binding Path=ID}" ClipboardContentBinding="{x:Null}" Width="50" HeaderStringFormat="ID"/>
